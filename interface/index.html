@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZOBYETEAM_PROGBAR</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                borderRadius: {
+                    DEFAULT: 0,
+                    'md': '0.15vw',
+                    'lg': '0.2vw',
+                    'xl': '0.3vw',
+                    '2xl': '0.4vw',
+                    '3xl': '0.8vw',
+                    'full': '100vw'
+                },
+                spacing: {
+                    '0': '0',
+                    '1': '0.2vw',
+                    '2': '0.4vw',
+                    '3': '0.6vw',
+                    '4': '0.8vw',
+                    '5': '1.0vw',
+                    '6': '1.2vw',
+                    '7': '1.4vw',
+                    '8': '1.6vw',
+                    '9': '1.8vw',
+                    '10': '2vw',
+                },
+                extend: {
+                    colors: {
+                        'dark-gray': '#3E3E3E',
+                        'gray': '#1E1E1E',
+                        'sky': '#4CC9F0',
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="container" class="absolute bottom-5 left-1/2 -translate-x-1/2 flex flex-col gap-2">
+            <transition-group>
+                <div v-for="(item, index) in tasks" :key="index" class="w-[15vw] h-[0.3vw] bg-gray rounded-full">
+                    <div class="w-0 h-full bg-sky rounded-full"
+                        :style="{'animation': `barLoading ${item.duration}ms linear forwards`}"></div>
+                </div>
+            </transition-group>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.47/vue.global.min.js"
+        integrity="sha512-DJ2+sosWB5FnZAIeCWAHu2gxQ7Gi438oOZLcBQSOrW8gD0s7LIXDv/5RW76B3FcljF40BXnfqNIo6Dhp7dFHJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./app.js"></script>
+</body>
+
+</html>
